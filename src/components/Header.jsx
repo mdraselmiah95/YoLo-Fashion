@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/images/Logo-2.png";
 
@@ -24,8 +24,31 @@ const mainNav = [
 const Header = () => {
   const { pathname } = useLocation();
   const activeNav = mainNav.findIndex((e) => e.path === pathname);
+
+  const headerRef = useRef(null);
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (
+        document.body.scrollTop > 80 ||
+        document.documentElement.scrollTop > 80
+      ) {
+        headerRef.current.classList.add("shrink");
+      } else {
+        headerRef.current.classList.remove("shrink");
+      }
+    });
+    return () => {
+      window.removeEventListener("scroll", null);
+    };
+  }, []);
+
+  const menuLeft = useRef(null);
+
+  const menuToggle = () => menuLeft.current.classList.toggle("active");
+
   return (
-    <div className="header">
+    <div className="header" ref={headerRef}>
       <div className="container">
         <div className="header__logo">
           <Link to="/">
