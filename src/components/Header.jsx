@@ -22,6 +22,8 @@ const mainNav = [
 ];
 
 const Header = () => {
+  const { pathname } = useLocation();
+  const activeNav = mainNav.findIndex((e) => e.path === pathname);
   return (
     <div className="header">
       <div className="container">
@@ -41,7 +43,9 @@ const Header = () => {
             {mainNav.map((item, index) => (
               <div
                 key={index}
-                className={`header__menu__item header__menu__left__item `}
+                className={`header__menu__item header__menu__left__item ${
+                  index === activeNav ? "active" : ""
+                }`}
                 // onClick={menuToggle}
               >
                 <Link to={item.path}>
