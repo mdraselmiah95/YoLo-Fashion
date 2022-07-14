@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter } from "react-router-dom";
 
 import "./assets/boxicons-2.0.7/css/boxicons.min.css";
 
@@ -11,11 +10,9 @@ import "./sass/index.scss";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <BrowserRouter>
-    <React.StrictMode>
-      <Layout />
-    </React.StrictMode>
-  </BrowserRouter>
+  <React.StrictMode>
+    <Layout />
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

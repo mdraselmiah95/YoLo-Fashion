@@ -1,18 +1,22 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
-import Cart from "../pages/Cart";
-import Catalog from "../pages/Catalog";
-import Home from "../pages/Home";
-import Product from "../pages/Product";
+import { BrowserRouter } from "react-router-dom";
+import Routes from "../routes/Routes";
+import Footer from "./Footer";
+import Header from "./Header";
 
 const Layout = () => {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/catalog/:slug" element={<Product />} />
-      <Route path="/catalog" element={<Catalog />} />
-      <Route path="/cart" element={<Cart />} />
-    </Routes>
+    <BrowserRouter>
+      <div>
+        <Header />
+        <div className="container">
+          <div className="main">
+            <Routes />
+          </div>
+        </div>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 };
 
