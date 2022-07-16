@@ -10,7 +10,7 @@ const Grid = (props) => {
   const mdCol = props.mdCol ? `grid-col-md-${props.mdCol}` : "";
   const smCol = props.smCol ? `grid-col-sm-${props.smCol}` : "";
   return (
-    <div className={`grid${col}${mdCol}${smCol}`} style={style}>
+    <div className={`grid ${col} ${mdCol} ${smCol}`} style={style}>
       {props.children}
     </div>
   );

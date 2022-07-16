@@ -261,6 +261,10 @@ a {
   }
 }
 
+.grid {
+  display: grid;
+}
+
 .header {
   background-color: #fff;
   position: fixed;
