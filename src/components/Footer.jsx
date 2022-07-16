@@ -51,13 +51,13 @@ const Footer = () => {
             <div className="footer__title">Tổng đài hỗ trợ</div>
             <div className="footer__content">
               <p>
-                Liên hệ đặt hàng <strong>0123456789</strong>
+                Liên hệ đặt hàng <strong>01845515895</strong>
               </p>
               <p>
-                Thắc mắc đơn hàng <strong>0123456789</strong>
+                Thắc mắc đơn hàng <strong>01845515895</strong>
               </p>
               <p>
-                Góp ý, khiếu nại <strong>0123456789</strong>
+                Góp ý, khiếu nại <strong>01845515895</strong>
               </p>
             </div>
           </div>
