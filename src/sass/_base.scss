@@ -31,13 +31,13 @@ a {
   color: unset;
 }
 
-// a:hover {
-//   color: $main-color;
-// }
+a:hover {
+  color: $main-color;
+}
 
-// img {
-//   max-width: 100%;
-// }
+img {
+  max-width: 100%;
+}
 
 @each $color, $val in $colors {
   .color-#{$color} {
