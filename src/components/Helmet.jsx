@@ -3,9 +3,11 @@ import PropTypes from "prop-types";
 
 const Helmet = (props) => {
   document.title = "Yolo - " + props.title;
-  return <div>Helmet</div>;
+  return <div>{props.children}</div>;
 };
 
-Helmet.propTypes = {};
+Helmet.propTypes = {
+  title: PropTypes.string.isRequired,
+};
 
 export default Helmet;
