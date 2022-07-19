@@ -8,7 +8,12 @@ const Home = () => {
   return (
     <Helmet title="Trang chủ">
       {/* hero slider */}
-      <HeroSlider data={heroSliderDate} control={true} auto={true} />
+      <HeroSlider
+        data={heroSliderDate}
+        control={true}
+        auto={true}
+        timeOut={5000}
+      />
       {/* end hero slider */}
     </Helmet>
   );
