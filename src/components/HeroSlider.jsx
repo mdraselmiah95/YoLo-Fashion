@@ -3,13 +3,14 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 const HeroSlider = ({ data }) => {
+  const activeSlide = 0;
   return (
     <div className="hero-slider">
       {data.map((item) => (
         <HeroSliderItem
           key={item.id}
           item={item}
-          // active={index === activeSlide}
+          active={item.id === activeSlide}
         />
       ))}
     </div>
@@ -21,7 +22,7 @@ HeroSlider.propTypes = {
 };
 
 const HeroSliderItem = ({ item }) => (
-  <div className={`hero-slider__item`}>
+  <div className={`hero-slider__item ${item.active ? "active" : ""}`}>
     <div className="hero-slider__item__info">
       <div className={`hero-slider__item__info__title color-${item.color}`}>
         <span>{item.title}</span>
@@ -30,15 +31,15 @@ const HeroSliderItem = ({ item }) => (
         <span>{item.description}</span>
       </div>
       <div className="hero-slider__item__info__btn">
-        {/* <Link to={props.item.path}>
-          <Button
+        <Link to={item.path}>
+          {/* <Button
             backgroundColor={props.item.color}
             icon="bx bx-cart"
             animate={true}
           >
             xem chi tiết
-          </Button>
-        </Link> */}
+          </Button> */}
+        </Link>
       </div>
     </div>
     <div className="hero-slider__item__image">
