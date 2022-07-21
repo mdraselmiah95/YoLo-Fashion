@@ -9,6 +9,7 @@ const HeroSlider = (props) => {
 
   const [activeSlide, setActiveSlide] = useState(0);
 
+  //Slider part
   const nextSlide = useCallback(() => {
     const index = activeSlide + 1 === data.length ? 0 : activeSlide + 1;
     setActiveSlide(index);
