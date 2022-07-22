@@ -31,6 +31,7 @@ const HeroSlider = (props) => {
       };
     }
   }, [nextSlide, timeOut, props]);
+
   return (
     <div className="hero-slider">
       {data.map((item, index) => (
