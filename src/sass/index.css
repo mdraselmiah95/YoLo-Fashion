@@ -500,8 +500,8 @@ img {
 .hero-slider__item__info__title {
   font-family: "M PLUS Rounded 1c", sans-serif;
   font-weight: 600;
-  font-size: 4.5rem;
-  line-height: 6.75rem;
+  font-size: 4rem;
+  line-height: 6rem;
   overflow: hidden;
 }
 @media only screen and (max-width: 600px) {
