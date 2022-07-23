@@ -552,7 +552,7 @@ img {
   }
 }
 .hero-slider__item__image img {
-  height: 95vh;
+  height: 97vh;
   position: absolute;
   bottom: 0;
   right: 0;
@@ -566,8 +566,8 @@ img {
   }
 }
 .hero-slider__item__image .shape {
-  height: 380px;
-  width: 380px;
+  height: 365px;
+  width: 365px;
   position: absolute;
   right: 0;
   top: 50%;
