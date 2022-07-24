@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Helmet from "../components/Helmet";
 import HeroSlider from "../components/HeroSlider";
 
@@ -7,7 +8,7 @@ import Section, { SectionBody } from "../components/Section";
 
 import PolicyCard from "../components/PolicyCard";
 import policy from "../assets/fake-data/policy";
-import { Link } from "react-router-dom";
+import Grid from "../components/Grid";
 
 const Home = () => {
   return (
@@ -25,15 +26,17 @@ const Home = () => {
 
       <Section>
         <SectionBody>
-          {policy.map((item, index) => (
-            <Link key={index} to="/policy">
-              <PolicyCard
-                name={item.name}
-                description={item.description}
-                icon={item.icon}
-              />
-            </Link>
-          ))}
+          <Grid col={4} mdCol={2} smCol={1} gap={20}>
+            {policy.map((item, index) => (
+              <Link key={index} to="/policy">
+                <PolicyCard
+                  name={item.name}
+                  description={item.description}
+                  icon={item.icon}
+                />
+              </Link>
+            ))}
+          </Grid>
         </SectionBody>
       </Section>
 
