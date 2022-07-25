@@ -723,4 +723,16 @@ img {
 .policy-card__info__description {
   font-size: 1rem;
   color: #8d8d8d;
+}
+
+.section {
+  margin-bottom: 80px;
+}
+.section > * ~ * {
+  margin-top: 70px;
+}
+.section__title {
+  font-size: 2rem;
+  text-transform: capitalize;
+  text-align: center;
 }/*# sourceMappingURL=index.css.map */
