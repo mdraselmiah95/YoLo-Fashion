@@ -64,6 +64,26 @@ const Home = () => {
         </SectionBody>
       </Section>
       {/* best selling section end*/}
+
+      {/* new arrival section */}
+      <Section>
+        <SectionTitle>sản phẩm mới</SectionTitle>
+        <SectionBody>
+          <Grid col={4} mdCol={2} smCol={1} gap={20}>
+            {productData.getProducts(8).map((item, index) => (
+              <ProductCard
+                key={index}
+                img01={item.image01}
+                img02={item.image02}
+                name={item.title}
+                price={Number(item.price)}
+                slug={item.slug}
+              />
+            ))}
+          </Grid>
+        </SectionBody>
+      </Section>
+      {/* new arrival section end*/}
     </Helmet>
   );
 };
