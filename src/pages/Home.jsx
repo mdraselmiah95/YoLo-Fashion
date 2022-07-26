@@ -11,6 +11,7 @@ import PolicyCard from "../components/PolicyCard";
 import policy from "../assets/fake-data/policy";
 import productData from "../assets/fake-data/products";
 import ProductCard from "../components/ProductCard";
+import banner from "../assets/images/banner.png";
 
 const Home = () => {
   console.log(productData);
@@ -84,6 +85,16 @@ const Home = () => {
         </SectionBody>
       </Section>
       {/* new arrival section end*/}
+
+      {/* banner */}
+      <Section>
+        <SectionBody>
+          <Link to="/catalog">
+            <img src={banner} alt="" />
+          </Link>
+        </SectionBody>
+      </Section>
+      {/* end banner */}
     </Helmet>
   );
 };
