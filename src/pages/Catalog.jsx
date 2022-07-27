@@ -1,9 +1,12 @@
 import React from "react";
-import productData from "../assets/fake-data/products";
 import Grid from "../components/Grid";
 import Helmet from "../components/Helmet";
-import ProductCard from "../components/ProductCard";
 import { SectionBody } from "../components/Section";
+import ProductCard from "../components/ProductCard";
+import CheckBox from "../components/CheckBox";
+
+import productData from "../assets/fake-data/products";
+import category from "../assets/fake-data/category";
 
 const Catalog = () => {
   return (
@@ -20,6 +23,22 @@ const Catalog = () => {
           <div className="catalog__filter__widget">
             <div className="catalog__filter__widget__title">
               danh mục sản phẩm
+            </div>
+            <div className="catalog__filter__widget__content">
+              {category.map((item, index) => (
+                <div
+                  key={index}
+                  className="catalog__filter__widget__content__item"
+                >
+                  <CheckBox
+                    label={item.display}
+                    // onChange={(input) =>
+                    //   filterSelect("CATEGORY", input.checked, item)
+                    // }
+                    // checked={filter.category.includes(item.categorySlug)}
+                  />
+                </div>
+              ))}
             </div>
             <SectionBody>
               <Grid col={4} mdCol={2} smCol={1} gap={20}>
