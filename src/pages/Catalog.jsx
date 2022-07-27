@@ -62,6 +62,7 @@ const Catalog = () => {
     }
   };
 
+  //clearing
   const clearFilter = () => setFilter(initFilter);
 
   const updateProducts = useCallback(() => {
