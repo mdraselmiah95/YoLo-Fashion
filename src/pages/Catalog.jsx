@@ -118,7 +118,7 @@ const Catalog = () => {
                     onChange={(input) =>
                       filterSelect("CATEGORY", input.checked, item)
                     }
-                    // checked={filter.category.includes(item.categorySlug)}
+                    checked={filter.category.includes(item.categorySlug)}
                   />
                 </div>
               ))}
@@ -138,7 +138,7 @@ const Catalog = () => {
                     onChange={(input) =>
                       filterSelect("COLOR", input.checked, item)
                     }
-                    // checked={filter.color.includes(item.color)}
+                    checked={filter.color.includes(item.color)}
                   />
                 </div>
               ))}
@@ -158,7 +158,7 @@ const Catalog = () => {
                     onChange={(input) =>
                       filterSelect("SIZE", input.checked, item)
                     }
-                    // checked={filter.size.includes(item.size)}
+                    checked={filter.size.includes(item.size)}
                   />
                 </div>
               ))}
@@ -167,7 +167,9 @@ const Catalog = () => {
 
           <div className="catalog__filter__widget">
             <div className="catalog__filter__widget__content">
-              <Button size="sm">xóa bộ lọc</Button>
+              <Button size="sm" onClick={clearFilter}>
+                xóa bộ lọc
+              </Button>
             </div>
           </div>
         </div>
