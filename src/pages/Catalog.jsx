@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Grid from "../components/Grid";
 import Helmet from "../components/Helmet";
 import { SectionBody } from "../components/Section";
@@ -62,6 +62,36 @@ const Catalog = () => {
     }
   };
 
+  const clearFilter = () => setFilter(initFilter);
+
+  const updateProducts = useCallback(() => {
+    let temp = productList;
+
+    if (filter.category.length > 0) {
+      temp = temp.filter((e) => filter.category.includes(e.categorySlug));
+    }
+
+    if (filter.color.length > 0) {
+      temp = temp.filter((e) => {
+        const check = e.colors.find((color) => filter.color.includes(color));
+        return check !== undefined;
+      });
+    }
+
+    if (filter.size.length > 0) {
+      temp = temp.filter((e) => {
+        const check = e.size.find((size) => filter.size.includes(size));
+        return check !== undefined;
+      });
+    }
+
+    setProducts(temp);
+  }, [filter, productList]);
+
+  useEffect(() => {
+    updateProducts();
+  }, [updateProducts]);
+
   return (
     <Helmet title="Sản phẩm">
       <div className="catalog">
@@ -85,9 +115,9 @@ const Catalog = () => {
                 >
                   <CheckBox
                     label={item.display}
-                    // onChange={(input) =>
-                    //   filterSelect("CATEGORY", input.checked, item)
-                    // }
+                    onChange={(input) =>
+                      filterSelect("CATEGORY", input.checked, item)
+                    }
                     // checked={filter.category.includes(item.categorySlug)}
                   />
                 </div>
@@ -105,9 +135,9 @@ const Catalog = () => {
                 >
                   <CheckBox
                     label={item.display}
-                    // onChange={(input) =>
-                    //   filterSelect("COLOR", input.checked, item)
-                    // }
+                    onChange={(input) =>
+                      filterSelect("COLOR", input.checked, item)
+                    }
                     // checked={filter.color.includes(item.color)}
                   />
                 </div>
@@ -125,9 +155,9 @@ const Catalog = () => {
                 >
                   <CheckBox
                     label={item.display}
-                    // onChange={(input) =>
-                    //   filterSelect("SIZE", input.checked, item)
-                    // }
+                    onChange={(input) =>
+                      filterSelect("SIZE", input.checked, item)
+                    }
                     // checked={filter.size.includes(item.size)}
                   />
                 </div>
