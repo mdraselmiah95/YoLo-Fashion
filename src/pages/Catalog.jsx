@@ -7,6 +7,7 @@ import CheckBox from "../components/CheckBox";
 
 import productData from "../assets/fake-data/products";
 import category from "../assets/fake-data/category";
+import colors from "../assets/fake-data/product-color";
 
 const Catalog = () => {
   return (
@@ -40,22 +41,42 @@ const Catalog = () => {
                 </div>
               ))}
             </div>
-            <SectionBody>
-              <Grid col={4} mdCol={2} smCol={1} gap={20}>
-                {productData.getProducts(12).map((item, index) => (
-                  <ProductCard
-                    key={index}
-                    img01={item.image01}
-                    img02={item.image02}
-                    name={item.title}
-                    price={Number(item.price)}
-                    slug={item.slug}
+          </div>
+
+          <div className="catalog__filter__widget">
+            <div className="catalog__filter__widget__title">màu sắc</div>
+            <div className="catalog__filter__widget__content">
+              {colors.map((item, index) => (
+                <div
+                  key={index}
+                  className="catalog__filter__widget__content__item"
+                >
+                  <CheckBox
+                    label={item.display}
+                    // onChange={(input) =>
+                    //   filterSelect("COLOR", input.checked, item)
+                    // }
+                    // checked={filter.color.includes(item.color)}
                   />
-                ))}
-              </Grid>
-            </SectionBody>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
+        <SectionBody>
+          <Grid col={4} mdCol={2} smCol={1} gap={20}>
+            {productData.getProducts(12).map((item, index) => (
+              <ProductCard
+                key={index}
+                img01={item.image01}
+                img02={item.image02}
+                name={item.title}
+                price={Number(item.price)}
+                slug={item.slug}
+              />
+            ))}
+          </Grid>
+        </SectionBody>
       </div>
     </Helmet>
   );
