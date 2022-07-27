@@ -18,6 +18,9 @@ const Catalog = () => {
           </div>
 
           <div className="catalog__filter__widget">
+            <div className="catalog__filter__widget__title">
+              danh mục sản phẩm
+            </div>
             <SectionBody>
               <Grid col={4} mdCol={2} smCol={1} gap={20}>
                 {productData.getProducts(12).map((item, index) => (
