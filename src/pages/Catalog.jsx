@@ -1,15 +1,67 @@
-import React from "react";
+import React, { useState } from "react";
 import Grid from "../components/Grid";
 import Helmet from "../components/Helmet";
 import { SectionBody } from "../components/Section";
 import ProductCard from "../components/ProductCard";
+import Button from "../components/Button";
 import CheckBox from "../components/CheckBox";
 
 import productData from "../assets/fake-data/products";
 import category from "../assets/fake-data/category";
 import colors from "../assets/fake-data/product-color";
+import size from "../assets/fake-data/product-size";
 
 const Catalog = () => {
+  const initFilter = {
+    category: [],
+    color: [],
+    size: [],
+  };
+
+  const productList = productData.getAllProducts();
+
+  const [products, setProducts] = useState(productList);
+
+  const [filter, setFilter] = useState(initFilter);
+
+  const filterSelect = (type, checked, item) => {
+    if (checked) {
+      switch (type) {
+        case "CATEGORY":
+          setFilter({
+            ...filter,
+            category: [...filter.category, item.categorySlug],
+          });
+          break;
+        case "COLOR":
+          setFilter({ ...filter, color: [...filter.color, item.color] });
+          break;
+        case "SIZE":
+          setFilter({ ...filter, size: [...filter.size, item.size] });
+          break;
+        default:
+      }
+    } else {
+      switch (type) {
+        case "CATEGORY":
+          const newCategory = filter.category.filter(
+            (e) => e !== item.categorySlug
+          );
+          setFilter({ ...filter, category: newCategory });
+          break;
+        case "COLOR":
+          const newColor = filter.color.filter((e) => e !== item.color);
+          setFilter({ ...filter, color: newColor });
+          break;
+        case "SIZE":
+          const newSize = filter.size.filter((e) => e !== item.size);
+          setFilter({ ...filter, size: newSize });
+          break;
+        default:
+      }
+    }
+  };
+
   return (
     <Helmet title="Sản phẩm">
       <div className="catalog">
@@ -62,10 +114,36 @@ const Catalog = () => {
               ))}
             </div>
           </div>
+
+          <div className="catalog__filter__widget">
+            <div className="catalog__filter__widget__title">kích cỡ</div>
+            <div className="catalog__filter__widget__content">
+              {size.map((item, index) => (
+                <div
+                  key={index}
+                  className="catalog__filter__widget__content__item"
+                >
+                  <CheckBox
+                    label={item.display}
+                    // onChange={(input) =>
+                    //   filterSelect("SIZE", input.checked, item)
+                    // }
+                    // checked={filter.size.includes(item.size)}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="catalog__filter__widget">
+            <div className="catalog__filter__widget__content">
+              <Button size="sm">xóa bộ lọc</Button>
+            </div>
+          </div>
         </div>
         <SectionBody>
           <Grid col={4} mdCol={2} smCol={1} gap={20}>
-            {productData.getProducts(12).map((item, index) => (
+            {products.map((item, index) => (
               <ProductCard
                 key={index}
                 img01={item.image01}
