@@ -3,6 +3,7 @@ import productData from "../assets/fake-data/products";
 import Grid from "../components/Grid";
 import Helmet from "../components/Helmet";
 import ProductCard from "../components/ProductCard";
+import ProductView from "../components/ProductView";
 import Section, { SectionBody, SectionTitle } from "../components/Section";
 
 const Product = (props) => {
@@ -17,7 +18,9 @@ const Product = (props) => {
   return (
     <Helmet title={product.title}>
       <Section>
-        <SectionBody>{/* <ProductView product={product} /> */}</SectionBody>
+        <SectionBody>
+          <ProductView product={product} />
+        </SectionBody>
       </Section>
       <Section>
         <SectionTitle>Khám phá thêm</SectionTitle>
