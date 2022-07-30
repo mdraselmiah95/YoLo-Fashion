@@ -4,6 +4,7 @@ import Button from "./Button";
 
 const ProductView = (props) => {
   const product = props.product;
+  const [descriptionExpand, setDescriptionExpand] = useState(false);
   const [previewImg, setPreviewImg] = useState(product.image01);
   return (
     <div className="product">
@@ -34,9 +35,9 @@ const ProductView = (props) => {
           <div className="product-description__toggle">
             <Button
               size="sm"
-              // onClick={() => setDescriptionExpand(!descriptionExpand)}
+              onClick={() => setDescriptionExpand(!descriptionExpand)}
             >
-              {/* {descriptionExpand ? "Thu gọn" : "Xem thêm"} */}Xt
+              {descriptionExpand ? "Thu gọn" : "Xem thêm"}
             </Button>
           </div>
         </div>
